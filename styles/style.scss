@@ -1,0 +1,58 @@
+#cards {
+    display: flex;
+    margin: auto;
+    width: 900px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+    #cards {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #cards {
+        width: 300px;
+    }
+}
+
+.card {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 282px;
+    height: 200px;
+    line-height: 0;
+    img {
+        width: 100%;
+        height: 80%;
+    };
+    
+}
+
+.card_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20%;
+    background-color: #666;
+    p {
+        padding: 0;
+        margin: 0;
+        padding-left: 30px;
+        width: 150px;
+    }
+}
+
+.like {
+    fill: black;
+    width: 25px;
+}
+
+.like:hover {
+    fill: red;
+}
+
+.like-chose {
+    fill: red;
+}
