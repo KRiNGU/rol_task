@@ -1,4 +1,4 @@
-let cardList = document.getElementById("cards");
+let cardList = document.querySelector(".cards");
 
 function deleteElem(elem) {
     let deleteIt = elem.parentNode.parentNode;

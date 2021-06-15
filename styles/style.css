@@ -1,4 +1,4 @@
-#cards {
+.cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,13 +9,13 @@
 }
 
 @media screen and (max-width: 1200px) {
-  #cards {
+  .cards {
     width: 600px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #cards {
+  .cards {
     width: 300px;
   }
 }
