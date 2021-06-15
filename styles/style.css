@@ -28,12 +28,12 @@
   line-height: 0;
 }
 
-.card_image {
+.card__foto {
   width: 100%;
   height: 80%;
 }
 
-.card_info {
+.card__description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,23 +47,32 @@
   background-color: #666;
 }
 
-.card_info_text {
+.card__title {
   padding: 0;
   margin: 0;
   padding-left: 30px;
   width: 150px;
 }
 
-.like {
-  fill: black;
-  width: 25px;
+.card__like-button {
+  background-repeat: no-repeat;
+  background-image: url(/task1/assets/heart.svg);
+  background-color: transparent;
+  background-position: center;
+  border: none;
+  min-width: 22px;
+  min-height: 19px;
+  cursor: pointer;
+  padding: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 
-.like:hover {
-  fill: red;
+.card__like-button_active {
+  background-image: url(/task1/assets/heart-red.svg);
 }
 
-.like-chose {
-  fill: red;
+.card__delete-button {
+  font-size: 20px;
 }
 /*# sourceMappingURL=style.css.map */
