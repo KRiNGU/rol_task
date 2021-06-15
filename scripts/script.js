@@ -6,7 +6,26 @@ const initialCards = [
        name: 'qwe', 
        link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
     }, 
-     
+    { 
+       name: 'asd', 
+       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+    }, 
+    { 
+       name: 'asd', 
+       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+    }, 
+    { 
+       name: 'asd', 
+       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+    }, 
+    { 
+       name: 'asd', 
+       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+    }, 
+    { 
+       name: 'asd', 
+       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+    }, 
     { 
        name: 'asd', 
        link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'

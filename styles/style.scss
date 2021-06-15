@@ -1,3 +1,7 @@
+body {
+    background-color: #222;
+}
+
 .cards {
     display: flex;
     margin: auto;
@@ -18,31 +22,32 @@
 }
 
 .card {
+    border-radius: 10px;
+    position: relative;
     margin-top: 10px;
     margin-right: 10px;
     width: 282px;
-    height: 200px;
     line-height: 0;
 }
 
 .card__foto {
+    border-radius: 10px 10px 0 0;
     width: 100%;
-    height: 80%;
+    height: 200px;
 }
 
 .card__description {
+    border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 20%;
-    background-color: #666;
+    padding: 25px 12px;
+    background-color: #fff;
 }
 
 .card__title {
     padding: 0;
     margin: 0;
-    padding-left: 30px;
-    width: 150px;
 }
 
 .card__like-button {
@@ -65,5 +70,14 @@
 
 
 .card__delete-button {
-    font-size: 20px;
+    background-image: url(/task1/assets/delete.svg);
+    cursor: pointer;
+    background-position: center; 
+    background-color: transparent;
+    width: 18px; 
+    height: 19px; 
+    position: absolute; 
+    border: none; 
+    top:15px; 
+    right: 15px; 
 }
