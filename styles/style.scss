@@ -36,12 +36,13 @@
     align-items: center;
     height: 20%;
     background-color: #666;
-    p {
-        padding: 0;
-        margin: 0;
-        padding-left: 30px;
-        width: 150px;
-    }
+}
+
+.card_info_text {
+    padding: 0;
+    margin: 0;
+    padding-left: 30px;
+    width: 150px;
 }
 
 .like {
