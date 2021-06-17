@@ -1,6 +1,10 @@
+// Basic settings
+
 body {
     background-color: #222;
 }
+
+// Cards
 
 .cards {
     display: flex;
@@ -20,6 +24,8 @@ body {
         width: 300px;
     }
 }
+
+// Card
 
 .card {
     border-radius: 10px;
@@ -78,4 +84,25 @@ body {
     border: none; 
     top:15px; 
     right: 15px; 
+}
+
+// Modal
+
+.modal { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    visibility: hidden; 
+    opacity: 0; 
+    box-sizing: border-box; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    margin: auto; 
+    padding: 30px; 
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    z-index: 9999; 
+    transition: visibility 0s linear 0.3s, opacity .3s linear; 
 }
