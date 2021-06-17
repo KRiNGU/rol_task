@@ -106,3 +106,8 @@ body {
     z-index: 9999; 
     transition: visibility 0s linear 0.3s, opacity .3s linear; 
 }
+
+.modal-open {
+    opacity: 1;
+    visibility: visible;
+}
