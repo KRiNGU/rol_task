@@ -8,6 +8,38 @@
 </head>
 <body>
     <ul class="cards"></ul>
+    <div class="modal modal_add-card modal_open"> 
+        <div class="modal__box"> 
+            <form class="modal__form modal__form_type_new-place" name="edit-form"> 
+                <button 
+                  class="modal__close-button modal__close-button_type_new-place"
+                  id="modal-close-button-new-place" 
+                  type="button"> &times; </button> 
+                <h2 class="modal__title">New Card</h2> 
+                <input 
+                  class="modal__input modal__input-title" 
+                  type="text"
+                  name="name" 
+                  placeholder="Title" 
+                  required
+                /> 
+                <input 
+                  class="modal__input modal__input-url" 
+                  type="text" 
+                  name="link" 
+                  placeholder="Image Link" 
+                  required 
+                /> 
+                <button 
+                  class="modal__save-button modal__save-button_type_new-card" 
+                  id="add-modal-save-button" 
+                  type="submit">
+                  Create
+                </button> 
+            </form> 
+        </div> 
+    </div> 
+
     <template class="card-template">
         <article class="card">
             <button type="button" aria-label="Удалить карточку" class="card__delete-button"></button>
