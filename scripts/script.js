@@ -1,5 +1,7 @@
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
+const modalAddCard = document.querySelector(".modal_add-card");
+const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
 
 const initialCards = [
    { 
@@ -33,6 +35,16 @@ const initialCards = [
 ];
 
 initialCards.forEach(createCard);
+
+modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
+
+function openPopup(elem) {
+   elem.classList.add('modal_open');
+}
+
+function closePopup(elem) {
+   elem.classList.remove('modal_open');
+}
 
 function createCard({ name, link }) {
    const card = cardTemplate.querySelector('.card').cloneNode(true);
