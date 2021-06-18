@@ -2,41 +2,39 @@ const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalAddCard = document.querySelector(".modal_add-card");
 const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
+const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
+
 
 const initialCards = [
-   { 
-      name: 'qwe', 
+   {  
+      name: 'asd',
       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
+   }
 ];
+
 
 initialCards.forEach(createCard);
 
+
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
+modalAddCardCreateButton.addEventListener('click', function(event){
+   event.preventDefault();
+   createCard({
+      name: modalAddCard.querySelector('.modal__input-title').value,
+      link: modalAddCard.querySelector('.modal__input-url').value
+   })
+   closePopup(modalAddCard);
+});
+
+function editUser({name, description, avatarUrl}) {
+   const userName = currentUser.querySelector('.user__name');
+   const userDescription = currentUser.querySelector('.user__description');
+   const userAvatarUrl = currentUser.querySelector('.user__foto');
+   userName.textContent = name;
+   userDescription.textContent = description;
+   userAvatarUrl.src = avatarUrl;
+   currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(modalAddCard));
+}
 
 function openPopup(elem) {
    elem.classList.add('modal_open');
