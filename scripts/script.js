@@ -2,41 +2,29 @@ const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalAddCard = document.querySelector(".modal_add-card");
 const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
+const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
+const modalAddCardCreateForm = modalAddCard.querySelector('.modal__form');
+const newCardName = modalAddCard.querySelector('.modal__input-title');
+const newCardPhotoUrl = modalAddCard.querySelector('.modal__input-url');
 
 const initialCards = [
-   { 
-      name: 'qwe', 
+   {  
+      name: 'asd',
       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
-   { 
-      name: 'asd', 
-      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
-   }, 
+   }
 ];
 
 initialCards.forEach(createCard);
 
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
+modalAddCardCreateForm.addEventListener('submit', function(event){
+   event.preventDefault();
+   createCard({
+      name: newCardName.value,
+      link: newCardPhotoUrl.value
+   })
+   closePopup(modalAddCard);
+});
 
 function openPopup(elem) {
    elem.classList.add('modal_open');
