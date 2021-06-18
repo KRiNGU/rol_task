@@ -12,9 +12,7 @@ const initialCards = [
    }
 ];
 
-
 initialCards.forEach(createCard);
-
 
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
 modalAddCardCreateButton.addEventListener('click', function(event){
@@ -25,16 +23,6 @@ modalAddCardCreateButton.addEventListener('click', function(event){
    })
    closePopup(modalAddCard);
 });
-
-function editUser({name, description, avatarUrl}) {
-   const userName = currentUser.querySelector('.user__name');
-   const userDescription = currentUser.querySelector('.user__description');
-   const userAvatarUrl = currentUser.querySelector('.user__foto');
-   userName.textContent = name;
-   userDescription.textContent = description;
-   userAvatarUrl.src = avatarUrl;
-   currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(modalAddCard));
-}
 
 function openPopup(elem) {
    elem.classList.add('modal_open');
