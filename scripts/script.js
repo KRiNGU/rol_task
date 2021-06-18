@@ -1,8 +1,16 @@
+// Global scope
+
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalAddCard = document.querySelector(".modal_add-card");
 const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
 const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
+let currentUser = document.querySelector('.user');
+const userName = currentUser.querySelector('.user__name');
+const userDescription = currentUser.querySelector('.user__description');
+const userAvatarUrl = currentUser.querySelector('.user__foto');
+
+// Initial constants
 
 const initialUser = { name: 'Alexander', 
                      description: 'front-end junior',
@@ -16,12 +24,12 @@ const initialCards = [
    }
 ];
 
-let currentUser = document.querySelector('.user');
+// Initiate page
 
 initialCards.forEach(createCard);
 editUser(initialUser);
 
-
+// modalAddCard events
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
 modalAddCardCreateButton.addEventListener('click', function(event){
    event.preventDefault();
@@ -32,14 +40,15 @@ modalAddCardCreateButton.addEventListener('click', function(event){
    closePopup(modalAddCard);
 });
 
+// User events
+currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(modalAddCard));
+
+// Functions
+
 function editUser({name, description, avatarUrl}) {
-   const userName = currentUser.querySelector('.user__name');
-   const userDescription = currentUser.querySelector('.user__description');
-   const userAvatarUrl = currentUser.querySelector('.user__foto');
    userName.textContent = name;
    userDescription.textContent = description;
    userAvatarUrl.src = avatarUrl;
-   currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(modalAddCard));
 }
 
 function openPopup(elem) {
