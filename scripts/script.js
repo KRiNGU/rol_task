@@ -1,10 +1,15 @@
 // Global scope
 
+// card constants
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalAddCard = document.querySelector(".modal_add-card");
 const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
 const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
+const modalAddCardCreateForm = modalAddCard.querySelector('.modal__form');
+const newCardName = modalAddCard.querySelector('.modal__input-title');
+const newCardPhotoUrl = modalAddCard.querySelector('.modal__input-url');
+// user constants
 let currentUser = document.querySelector('.user');
 const userName = currentUser.querySelector('.user__name');
 const userDescription = currentUser.querySelector('.user__description');
@@ -16,6 +21,7 @@ const initialUser = { name: 'Alexander',
                      description: 'front-end junior',
                      avatarUrl: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
                   };
+
 
 const initialCards = [
    {  
@@ -31,11 +37,12 @@ editUser(initialUser);
 
 // modalAddCard events
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
-modalAddCardCreateButton.addEventListener('click', function(event){
+
+modalAddCardCreateForm.addEventListener('submit', function(event){
    event.preventDefault();
    createCard({
-      name: modalAddCard.querySelector('.modal__input-title').value,
-      link: modalAddCard.querySelector('.modal__input-url').value
+      name: newCardName.value,
+      link: newCardPhotoUrl.value
    })
    closePopup(modalAddCard);
 });
