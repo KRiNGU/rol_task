@@ -1,3 +1,6 @@
+// Global scope
+
+// card constants
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalAddCard = document.querySelector(".modal_add-card");
@@ -6,6 +9,19 @@ const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button
 const modalAddCardCreateForm = modalAddCard.querySelector('.modal__form');
 const newCardName = modalAddCard.querySelector('.modal__input-title');
 const newCardPhotoUrl = modalAddCard.querySelector('.modal__input-url');
+// user constants
+let currentUser = document.querySelector('.user');
+const userName = currentUser.querySelector('.user__name');
+const userDescription = currentUser.querySelector('.user__description');
+const userAvatarUrl = currentUser.querySelector('.user__foto');
+
+// Initial constants
+
+const initialUser = { name: 'Alexander', 
+                     description: 'front-end junior',
+                     avatarUrl: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+                  };
+
 
 const initialCards = [
    {  
@@ -14,9 +30,14 @@ const initialCards = [
    }
 ];
 
-initialCards.forEach(createCard);
+// Initiate page
 
+initialCards.forEach(createCard);
+editUser(initialUser);
+
+// modalAddCard events
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
+
 modalAddCardCreateForm.addEventListener('submit', function(event){
    event.preventDefault();
    createCard({
@@ -25,6 +46,17 @@ modalAddCardCreateForm.addEventListener('submit', function(event){
    })
    closePopup(modalAddCard);
 });
+
+// User events
+currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(modalAddCard));
+
+// Functions
+
+function editUser({name, description, avatarUrl}) {
+   userName.textContent = name;
+   userDescription.textContent = description;
+   userAvatarUrl.src = avatarUrl;
+}
 
 function openPopup(elem) {
    elem.classList.add('modal_open');
