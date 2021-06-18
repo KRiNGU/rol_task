@@ -3,7 +3,9 @@ const cardList = document.querySelector(".cards");
 const modalAddCard = document.querySelector(".modal_add-card");
 const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
 const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
-
+const modalAddCardCreateForm = modalAddCard.querySelector('.modal__form');
+const newCardName = modalAddCard.querySelector('.modal__input-title');
+const newCardPhotoUrl = modalAddCard.querySelector('.modal__input-url');
 
 const initialCards = [
    {  
@@ -15,11 +17,11 @@ const initialCards = [
 initialCards.forEach(createCard);
 
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
-modalAddCardCreateButton.addEventListener('click', function(event){
+modalAddCardCreateForm.addEventListener('submit', function(event){
    event.preventDefault();
    createCard({
-      name: modalAddCard.querySelector('.modal__input-title').value,
-      link: modalAddCard.querySelector('.modal__input-url').value
+      name: newCardName.value,
+      link: newCardPhotoUrl.value
    })
    closePopup(modalAddCard);
 });
