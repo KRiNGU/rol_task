@@ -4,6 +4,10 @@ const modalAddCard = document.querySelector(".modal_add-card");
 const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
 const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
 
+const initialUser = { name: 'Alexander', 
+                     description: 'front-end junior',
+                     avatarUrl: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+                  };
 
 const initialCards = [
    {  
@@ -12,8 +16,10 @@ const initialCards = [
    }
 ];
 
+let currentUser = document.querySelector('.user');
 
 initialCards.forEach(createCard);
+editUser(initialUser);
 
 
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
