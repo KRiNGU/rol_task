@@ -1,5 +1,5 @@
 // Global scope
-
+const keyPressFunction = (event)=>keyPress(event);
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalList = document.querySelectorAll('.modal');
@@ -48,7 +48,6 @@ initialCards.forEach(createCard);
 editUser(initialUser);
 
 // global events
-document.addEventListener('keydown', (event)=>keyPress(event));
 for (const modal of modalList) {
    modal.addEventListener('click', (event)=>overlayClick(event, modal));
 }
@@ -91,6 +90,7 @@ function overlayClick(event, modal) {
    }
 }
 function keyPress(event) {
+   alert();
    if (event.key === "Escape") {
       closePopup(document.querySelector('.modal_open'));
    }
@@ -108,10 +108,12 @@ function editUser({name, description}) {
 }
 
 function openPopup(elem) {
+   document.addEventListener('keydown', keyPressFunction);
    elem.classList.add('modal_open');
 }
 
 function closePopup(elem) {
+   document.removeEventListener('keydown', keyPressFunction);
    elem.classList.remove('modal_open');
 }
 
