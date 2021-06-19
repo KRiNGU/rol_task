@@ -1,5 +1,9 @@
 // Global scope
-const keyPressFunction = (event)=>keyPress(event);
+const keyPressFunction = (event)=>{
+   if (event.key === "Escape") {
+      closePopup(document.querySelector('.modal_open'));
+   }
+};
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
 const modalList = document.querySelectorAll('.modal');
@@ -48,9 +52,9 @@ initialCards.forEach(createCard);
 editUser(initialUser);
 
 // global events
-for (const modal of modalList) {
+modalList.forEach((modal)=> {
    modal.addEventListener('click', (event)=>overlayClick(event, modal));
-}
+})
 
 // modalAddCard events
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
@@ -87,12 +91,6 @@ openImg.querySelector('.modal__close-button').addEventListener('click', ()=>clos
 function overlayClick(event, modal) {
    if (event.target === event.currentTarget) {
       closePopup(modal);
-   }
-}
-function keyPress(event) {
-   alert();
-   if (event.key === "Escape") {
-      closePopup(document.querySelector('.modal_open'));
    }
 }
 
