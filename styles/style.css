@@ -67,7 +67,7 @@ body {
 
 .card__like-button {
   background-repeat: no-repeat;
-  background-image: url(/assets/heart.svg);
+  background-image: url(../assets/heart.svg);
   background-color: transparent;
   background-position: center;
   border: none;
@@ -80,11 +80,11 @@ body {
 }
 
 .card__like-button_active {
-  background-image: url(/assets/heart-red.svg);
+  background-image: url(../assets/heart-red.svg);
 }
 
 .card__delete-button {
-  background-image: url(/assets/delete.svg);
+  background-image: url(../assets/delete.svg);
   cursor: pointer;
   background-position: center;
   background-color: transparent;
@@ -212,7 +212,7 @@ body {
   height: 20px;
   border: none;
   background-repeat: no-repeat;
-  background-image: url(/assets/pen.svg);
+  background-image: url(../assets/pen.svg);
   background-color: transparent;
   background-position: center;
 }
