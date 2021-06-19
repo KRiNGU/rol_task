@@ -5,36 +5,43 @@
 
 body {
   background-color: #222;
+  font-family: 'Poppins', sans-serif;
 }
 
-.cards {
-  padding-left: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
+.main {
   width: 900px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  padding: 0;
+  margin: auto;
 }
 
 @media screen and (max-width: 1200px) {
-  .cards {
+  .main {
     width: 600px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .cards {
+  .main {
     width: 300px;
   }
+}
+
+.cards {
+  padding-left: 0px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .card {
   border-radius: 10px;
   position: relative;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-top: 20px;
   width: 282px;
   line-height: 0;
 }
