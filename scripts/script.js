@@ -90,7 +90,6 @@ function overlayClick(event, modal) {
       closePopup(modal);
    }
 }
-
 function keyPress(event) {
    if (event.key === "Escape") {
       closePopup(document.querySelector('.modal_open'));
