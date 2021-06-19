@@ -2,6 +2,7 @@
 
 const cardTemplate = document.querySelector('.card-template').content;
 const cardList = document.querySelector(".cards");
+const modalList = document.querySelectorAll('.modal');
 
 // card constants
 const modalAddCard = document.querySelector(".modal_add-card");
@@ -46,6 +47,12 @@ const initialCards = [
 initialCards.forEach(createCard);
 editUser(initialUser);
 
+// global events
+document.addEventListener('keydown', (event)=>keyPress(event));
+for (const modal of modalList) {
+   modal.addEventListener('click', ()=>closePopup(modal));
+}
+
 // modalAddCard events
 modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
 
@@ -77,6 +84,12 @@ modalEditUserSaveForm.addEventListener('submit', function(event){
 openImg.querySelector('.modal__close-button').addEventListener('click', ()=>closePopup(openImg))
 
 // Functions
+
+function keyPress(event) {
+   if (event.key === "Escape") {
+      closePopup(document.querySelector('.modal_open'));
+   }
+}
 
 function openImage({link, title}) {
    openImgImage.src = link;
