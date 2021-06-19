@@ -28,9 +28,6 @@ body {
 
 .cards {
   padding-left: 0px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,6 +36,8 @@ body {
 }
 
 .card {
+  margin-left: 9px;
+  margin-right: 9px;
   border-radius: 10px;
   position: relative;
   margin-top: 20px;
