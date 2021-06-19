@@ -50,7 +50,7 @@ editUser(initialUser);
 // global events
 document.addEventListener('keydown', (event)=>keyPress(event));
 for (const modal of modalList) {
-   modal.addEventListener('click', ()=>closePopup(modal));
+   modal.addEventListener('click', (event)=>overlayClick(event, modal));
 }
 
 // modalAddCard events
@@ -84,6 +84,12 @@ modalEditUserSaveForm.addEventListener('submit', function(event){
 openImg.querySelector('.modal__close-button').addEventListener('click', ()=>closePopup(openImg))
 
 // Functions
+
+function overlayClick(event, modal) {
+   if (event.target === event.currentTarget) {
+      closePopup(modal);
+   }
+}
 
 function keyPress(event) {
    if (event.key === "Escape") {
