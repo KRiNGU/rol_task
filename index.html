@@ -4,100 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet"> 
     <title>Task 1</title>
 </head>
 <body>
-  <header class="user">
-    <h2 class="user__header">Around</h2>
-    <hr>
-    <div class="user__profile">
-      <div class="user__info">
-        <img src="https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg" alt="user__foto" class="user__foto">
-        <div class="user__text">
-          <div class="user__name"></div>
-          <div class="user__description"></div>
+  <main class="main">
+    <header class="user">
+      <h2 class="user__header">Around</h2>
+      <hr>
+      <div class="user__profile">
+        <div class="user__info">
+          <img src="https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg" alt="user__foto" class="user__foto">
+          <div class="user__text">
+            <div class="user__name"></div>
+            <div class="user__description"></div>
+          </div>
+          <button class="user__edit-info-button"></button>
         </div>
-        <button class="user__edit-info-button"></button>
+        <button class="user__add-card-button">+</button>
       </div>
-      <button class="user__add-card-button">+</button>
-    </div>
-  </header>
-    <ul class="cards"></ul>
-    <div class="modal modal_edit-user"> 
-      <div class="modal__box"> 
-          <form class="modal__form modal__form_type_edit-user" name="edit-form"> 
-              <button 
-                class="modal__close-button modal__close-button_type_new-place"
-                id="modal-close-button-new-place" 
-                type="button"> &times; </button> 
-              <h2 class="modal__title">Edit user</h2> 
-              <input 
-                class="modal__input modal__input-name" 
-                type="text"
-                name="name" 
-                placeholder="User name" 
-                required
-              /> 
-              <input 
-                class="modal__input modal__input-description" 
-                type="text" 
-                name="link" 
-                placeholder="Description" 
-                required 
-              /> 
-              <button 
-                class="modal__save-button modal__save-button_type_user-info" 
-                id="add-modal-save-user-button" 
-                type="submit">
-                Save
-              </button> 
-          </form> 
-      </div> 
-    </div> 
-    <div class="modal modal__open-img"> 
-      <div class="modal__box modal__box_open-img"> 
-          <form class="modal__form modal__form_type_open-img" name="large-img"> 
-            <button 
-              class="modal__close-button modal__close-button_type_open-img"
-              id="modal-close-button-open-img" 
-              type="button"> &times; </button> 
-              <img class="modal__open-img-image" src="" alt="">
-              <p class="modal__open-img-title"></p>
-          </form> 
-      </div> 
-    </div> 
-    <div class="modal modal_add-card"> 
+    </header>
+      <ul class="cards"></ul>
+      <div class="modal modal_edit-user"> 
         <div class="modal__box"> 
-            <form class="modal__form modal__form_type_new-place" name="edit-form"> 
+            <form class="modal__form modal__form_type_edit-user" name="edit-form"> 
                 <button 
                   class="modal__close-button modal__close-button_type_new-place"
                   id="modal-close-button-new-place" 
                   type="button"> &times; </button> 
-                <h2 class="modal__title">New Card</h2> 
+                <h2 class="modal__title">Edit user</h2> 
                 <input 
-                  class="modal__input modal__input-title" 
+                  class="modal__input modal__input-name" 
                   type="text"
                   name="name" 
-                  placeholder="Title" 
+                  placeholder="User name" 
                   required
                 /> 
                 <input 
-                  class="modal__input modal__input-url" 
+                  class="modal__input modal__input-description" 
                   type="text" 
                   name="link" 
-                  placeholder="Image Link" 
+                  placeholder="Description" 
                   required 
                 /> 
                 <button 
-                  class="modal__save-button modal__save-button_type_new-card" 
-                  id="add-modal-save-button" 
+                  class="modal__save-button modal__save-button_type_user-info" 
+                  id="add-modal-save-user-button" 
                   type="submit">
-                  Create
+                  Save
                 </button> 
             </form> 
         </div> 
-    </div> 
-
+      </div> 
+      <div class="modal modal__open-img"> 
+        <div class="modal__box modal__box_open-img"> 
+            <form class="modal__form modal__form_type_open-img" name="large-img"> 
+              <button 
+                class="modal__close-button modal__close-button_type_open-img"
+                id="modal-close-button-open-img" 
+                type="button"> &times; </button> 
+                <img class="modal__open-img-image" src="" alt="">
+                <p class="modal__open-img-title"></p>
+            </form> 
+        </div> 
+      </div> 
+      <div class="modal modal_add-card"> 
+          <div class="modal__box"> 
+              <form class="modal__form modal__form_type_new-place" name="edit-form"> 
+                  <button 
+                    class="modal__close-button modal__close-button_type_new-place"
+                    id="modal-close-button-new-place" 
+                    type="button"> &times; </button> 
+                  <h2 class="modal__title">New Card</h2> 
+                  <input 
+                    class="modal__input modal__input-title" 
+                    type="text"
+                    name="name" 
+                    placeholder="Title" 
+                    required
+                  /> 
+                  <input 
+                    class="modal__input modal__input-url" 
+                    type="text" 
+                    name="link" 
+                    placeholder="Image Link" 
+                    required 
+                  /> 
+                  <button 
+                    class="modal__save-button modal__save-button_type_new-card" 
+                    id="add-modal-save-button" 
+                    type="submit">
+                    Create
+                  </button> 
+              </form> 
+          </div> 
+      </div> 
+  </main>
     <template class="card-template">
         <article class="card">
             <button type="button" aria-label="Удалить карточку" class="card__delete-button"></button>

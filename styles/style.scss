@@ -6,6 +6,27 @@
 
 body {
     background-color: #222;
+    font-family: 'Poppins', sans-serif;
+}
+
+// Main container
+
+.main {
+    width: 900px;
+    padding: 0;
+    margin: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .main {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .main {
+        width: 300px;
+    }
 }
 
 // Cards
@@ -13,30 +34,17 @@ body {
 .cards {
     padding-left: 0px;
     display: flex;
-    margin: auto;
-    width: 900px;
     flex-wrap: wrap;
-}
-
-@media screen and (max-width: 1200px) {
-    .cards {
-        width: 600px;
-    }
-}
-
-@media screen and (max-width: 768px){
-    .cards {
-        width: 300px;
-    }
 }
 
 // Card
 
 .card {
+    margin-left: 9px;
+    margin-right: 9px;
     border-radius: 10px;
     position: relative;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin-top: 20px;
     width: 282px;
     line-height: 0;
 }
