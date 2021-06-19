@@ -17,15 +17,19 @@ const userName = currentUser.querySelector('.user__name');
 const userDescription = currentUser.querySelector('.user__description');
 const userAvatarUrl = currentUser.querySelector('.user__foto');
 
-// edit user modal
+// edit user modal constants
 const modalEditUser = document.querySelector('.modal_edit-user');
 const modalUserName = modalEditUser.querySelector('.modal__input-name');
 const modalUserDescription = modalEditUser.querySelector('.modal__input-description');
 const modalEditUserClosePopup = modalEditUser.querySelector('.modal__close-button');
 const modalEditUserSaveForm = modalEditUser.querySelector('.modal__form');
 
-// Initial constants
+// Open image constants
+const openImg = document.querySelector('.modal__open-img');
+const openImgImage = openImg.querySelector('.modal__open-img-image');
+const openImgTitle = openImg.querySelector('.modal__open-img-title');
 
+// Initial constants
 const initialUser = { name: 'Alexander', 
                      description: 'front-end junior'
                   };
@@ -69,7 +73,16 @@ modalEditUserSaveForm.addEventListener('submit', function(event){
    closePopup(modalEditUser);
 })
 
+// Open img events
+openImg.querySelector('.modal__close-button').addEventListener('click', ()=>closePopup(openImg))
+
 // Functions
+
+function openImage({link, title}) {
+   openImgImage.src = link;
+   openImgTitle.textContent = title;
+   openPopup(openImg);
+}
 
 function editUser({name, description}) {
    userName.textContent = name;
@@ -94,6 +107,7 @@ function createCard({ name, link }) {
    cardFoto.src = link;
    deleteBtn.addEventListener('click', ()=>deleteElem(card));
    likeBtn.addEventListener('click', ()=>toggleLike(likeBtn));
+   cardFoto.addEventListener('click', ()=>openImage({link: link, title: name}));
    cardList.prepend(card);
 }
 

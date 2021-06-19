@@ -229,3 +229,19 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+// Open img
+
+.modal__box_open-img {
+    width: auto;
+    height: auto;
+    max-width: 1024px;
+    max-height: 1024px;
+    background-color: transparent;
+}
+
+.modal__open-img-title {
+    font-size: 35px;
+    margin: 0;
+    color: #fff;
+}
