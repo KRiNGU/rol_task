@@ -1,39 +1,12 @@
+import Card from './Card.js';
+import * as DOMconst from './constants.js';
+
 // Global scope
 const keyPressFunction = (event)=>{
    if (event.key === "Escape") {
       closePopup(document.querySelector('.modal_open'));
    }
-};
-const cardTemplate = document.querySelector('.card-template').content;
-const cardList = document.querySelector(".cards");
-const modalList = document.querySelectorAll('.modal');
-
-// card constants
-const modalAddCard = document.querySelector(".modal_add-card");
-const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
-const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
-const modalAddCardCreateForm = modalAddCard.querySelector('.modal__form');
-const newCardName = modalAddCard.querySelector('.modal__input-title');
-const newCardPhotoUrl = modalAddCard.querySelector('.modal__input-url');
-
-// user constants
-let currentUser = document.querySelector('.user');
-const userName = currentUser.querySelector('.user__name');
-const userDescription = currentUser.querySelector('.user__description');
-const userAvatarUrl = currentUser.querySelector('.user__foto');
-
-// edit user modal constants
-const modalEditUser = document.querySelector('.modal_edit-user');
-const modalUserName = modalEditUser.querySelector('.modal__input-name');
-const modalUserDescription = modalEditUser.querySelector('.modal__input-description');
-const modalEditUserClosePopup = modalEditUser.querySelector('.modal__close-button');
-const modalEditUserSaveForm = modalEditUser.querySelector('.modal__form');
-
-// Open image constants
-const openImg = document.querySelector('.modal__open-img');
-const openImgImage = openImg.querySelector('.modal__open-img-image');
-const openImgTitle = openImg.querySelector('.modal__open-img-title');
-
+}
 // Initial constants
 const initialUser = { name: 'Alexander', 
                      description: 'front-end junior'
@@ -48,45 +21,50 @@ const initialCards = [
 
 // Initiate page
 
-initialCards.forEach(createCard);
+initialCards.forEach((card)=>createCard(card));
 editUser(initialUser);
 
 // global events
-modalList.forEach((modal)=> {
+DOMconst.modalList.forEach((modal)=> {
    modal.addEventListener('click', (event)=>overlayClick(event, modal));
 })
 
 // modalAddCard events
-modalAddCardCloseButton.addEventListener('click', ()=>closePopup(modalAddCard));
+DOMconst.modalAddCardCloseButton.addEventListener('click', ()=>closePopup(DOMconst.modalAddCard));
 
-modalAddCardCreateForm.addEventListener('submit', function(event){
+DOMconst.modalAddCardCreateForm.addEventListener('submit', function(event){
    event.preventDefault();
    createCard({
-      name: newCardName.value,
-      link: newCardPhotoUrl.value
+      name: DOMconst.newCardName.value,
+      link: DOMconst.newCardPhotoUrl.value
    })
-   closePopup(modalAddCard);
+   closePopup(DOMconst.modalAddCard);
 });
 
 // User events
-currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(modalAddCard));
-currentUser.querySelector('.user__edit-info-button').addEventListener('click', ()=>openPopup(modalEditUser));
+DOMconst.currentUser.querySelector('.user__add-card-button').addEventListener('click', ()=>openPopup(DOMconst.modalAddCard));
+DOMconst.currentUser.querySelector('.user__edit-info-button').addEventListener('click', ()=>openPopup(DOMconst.modalEditUser));
 
-modalEditUserClosePopup.addEventListener('click', ()=>closePopup(modalEditUser));
+DOMconst.modalEditUserClosePopup.addEventListener('click', ()=>closePopup(DOMconst.modalEditUser));
 
-modalEditUserSaveForm.addEventListener('submit', function(event){
+DOMconst.modalEditUserSaveForm.addEventListener('submit', function(event){
    event.preventDefault();
    editUser({
-      name: modalUserName.value,
-      description: modalUserDescription.value
+      name: DOMconst.modalUserName.value,
+      description: DOMconst.modalUserDescription.value
    })
-   closePopup(modalEditUser);
+   closePopup(DOMconst.modalEditUser);
 })
 
 // Open img events
-openImg.querySelector('.modal__close-button').addEventListener('click', ()=>closePopup(openImg))
+DOMconst.openImg.querySelector('.modal__close-button').addEventListener('click', ()=>closePopup(DOMconst.openImg))
 
 // Functions
+
+function createCard(card) {
+   const newCard = new Card(card.name, card.link, '.card-template', openImage).getView();
+   DOMconst.cardList.prepend(newCard);
+}
 
 function overlayClick(event, modal) {
    if (event.target === event.currentTarget) {
@@ -95,14 +73,14 @@ function overlayClick(event, modal) {
 }
 
 function openImage({link, title}) {
-   openImgImage.src = link;
-   openImgTitle.textContent = title;
-   openPopup(openImg);
+   DOMconst.openImgImage.src = link;
+   DOMconst.openImgTitle.textContent = title;
+   openPopup(DOMconst.openImg);
 }
 
 function editUser({name, description}) {
-   userName.textContent = name;
-   userDescription.textContent = description;
+   DOMconst.userName.textContent = name;
+   DOMconst.userDescription.textContent = description;
 }
 
 function openPopup(elem) {
@@ -113,26 +91,4 @@ function openPopup(elem) {
 function closePopup(elem) {
    document.removeEventListener('keydown', keyPressFunction);
    elem.classList.remove('modal_open');
-}
-
-function createCard({ name, link }) {
-   const card = cardTemplate.querySelector('.card').cloneNode(true);
-   const likeBtn = card.querySelector('.card__like-button');
-   const deleteBtn = card.querySelector('.card__delete-button');
-   const cardTitle = card.querySelector('.card__title');
-   const cardFoto = card.querySelector('.card__foto');
-   cardTitle.textContent = name;
-   cardFoto.src = link;
-   deleteBtn.addEventListener('click', ()=>deleteElem(card));
-   likeBtn.addEventListener('click', ()=>toggleLike(likeBtn));
-   cardFoto.addEventListener('click', ()=>openImage({link: link, title: name}));
-   cardList.prepend(card);
-}
-
-function deleteElem(elem) {
-   elem.remove();
-}
-
-function toggleLike(elem) {
-   elem.classList.toggle("card__like-button_active");
 }
