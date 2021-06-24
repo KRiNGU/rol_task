@@ -283,4 +283,14 @@ body {
   margin: 0;
   color: #fff;
 }
+
+.modal__input-error {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal__input-error_shown {
+  opacity: 1;
+  visibility: visible;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 import * as DOMconst from './constants.js';
 
 // Global scope
@@ -20,6 +21,11 @@ const initialCards = [
 ];
 
 // Initiate page
+
+const addCardValidator = new FormValidator('.modal__input', DOMconst.modalAddCard);
+addCardValidator.enableValidation();
+const editUserValidator = new FormValidator('.modal__input', DOMconst.modalEditUser);
+editUserValidator.enableValidation();
 
 initialCards.forEach((card)=>createCard(card));
 editUser(initialUser);
