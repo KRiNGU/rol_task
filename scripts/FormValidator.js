@@ -14,13 +14,13 @@ export default class FormValidator {
     }
 
     _showInputError(input, message) {
-        const spanElement = document.querySelector('.modal__input-error_' + input.id);
+        const spanElement = this.form.querySelector(`.modal__input-error_${input.id}`);
         spanElement.textContent = message;
         spanElement.classList.add('modal__input-error_shown');
     }
 
     _hideInputError(input) {
-        const spanElement = document.querySelector('.modal__input-error_' + input.id);
+        const spanElement = this.form.querySelector(`.modal__input-error_${input.id}`);
         spanElement.textContent = '';
         spanElement.classList.remove('modal__input-error_shown');
     }
