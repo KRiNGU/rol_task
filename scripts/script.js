@@ -31,9 +31,9 @@ const initialCards = [
 const editUserPopup = new PopupWithEdit('.modal__edit-user', document, editUser).getPopup();
 const createCardPopup = new PopupWithEdit('.modal__add-card', document, createCard).getPopup();
 const imagePopup = new PopupWithImage(document).getPopup();
-const addCardValidator = new FormValidator('.modal__input', DOMconst.modalAddCard);
+const addCardValidator = new FormValidator('.modal__input', editUserPopup.getModal());
 addCardValidator.enableValidation();
-const editUserValidator = new FormValidator('.modal__input', DOMconst.modalEditUser);
+const editUserValidator = new FormValidator('.modal__input', createCardPopup.getModal());
 editUserValidator.enableValidation();
 
 initialCards.forEach((card)=>createCard(card));

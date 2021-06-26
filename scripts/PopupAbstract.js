@@ -10,6 +10,10 @@ export default class PopupAbstract {
         this.document = document;
     }
 
+    getModal() {
+        return this.popup;
+    }
+
     overlayClick(event) {
         if (event.target === event.currentTarget) {
            this.closePopup();
