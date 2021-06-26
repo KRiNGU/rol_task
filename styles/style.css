@@ -271,7 +271,7 @@ body {
 }
 
 .modal__box_open-img {
-  width: auto;
+  width: 1024px;
   height: auto;
   max-width: 1024px;
   max-height: 1024px;

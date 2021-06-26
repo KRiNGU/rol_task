@@ -1,6 +1,7 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 import * as DOMconst from './constants.js';
+import PopupWithImage from './PopupWithImage.js';
 
 // Global scope
 const keyPressFunction = (event)=>{
@@ -8,6 +9,7 @@ const keyPressFunction = (event)=>{
       closePopup(document.querySelector('.modal_open'));
    }
 }
+
 // Initial constants
 const initialUser = { name: 'Alexander', 
                      description: 'front-end junior'
@@ -21,7 +23,7 @@ const initialCards = [
 ];
 
 // Initiate page
-
+const imagePopup = new PopupWithImage(document).getPopup();
 const addCardValidator = new FormValidator('.modal__input', DOMconst.modalAddCard);
 addCardValidator.enableValidation();
 const editUserValidator = new FormValidator('.modal__input', DOMconst.modalEditUser);
@@ -29,11 +31,6 @@ editUserValidator.enableValidation();
 
 initialCards.forEach((card)=>createCard(card));
 editUser(initialUser);
-
-// global events
-DOMconst.modalList.forEach((modal)=> {
-   modal.addEventListener('click', (event)=>overlayClick(event, modal));
-})
 
 // modalAddCard events
 DOMconst.modalAddCardCloseButton.addEventListener('click', ()=>closePopup(DOMconst.modalAddCard));
@@ -61,27 +58,11 @@ DOMconst.modalEditUserSaveForm.addEventListener('submit', function(event){
    })
    closePopup(DOMconst.modalEditUser);
 })
-
-// Open img events
-DOMconst.openImg.querySelector('.modal__close-button').addEventListener('click', ()=>closePopup(DOMconst.openImg))
-
 // Functions
 
 function createCard(card) {
-   const newCard = new Card(card.name, card.link, '.card-template', openImage).getView();
+   const newCard = new Card(card.name, card.link, '.card-template', ()=>imagePopup.openImage(card.link, card.name)).getView();
    DOMconst.cardList.prepend(newCard);
-}
-
-function overlayClick(event, modal) {
-   if (event.target === event.currentTarget) {
-      closePopup(modal);
-   }
-}
-
-function openImage({link, title}) {
-   DOMconst.openImgImage.src = link;
-   DOMconst.openImgTitle.textContent = title;
-   openPopup(DOMconst.openImg);
 }
 
 function editUser({name, description}) {
