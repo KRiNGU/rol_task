@@ -9,7 +9,7 @@ export default class Card {
     _setEventListeners() {
         this.deleteBtn.addEventListener('click', ()=>this._deleteCard(this.card));
         this.likeBtn.addEventListener('click', ()=>this._toggleLike(this.likeBtn));
-        this.cardFoto.addEventListener('click', ()=>this.handleCardClick({link: this.link, title: this.title}));
+        this.cardFoto.addEventListener('click', this.handleCardClick);
     }
 
     _deleteCard(elem) {
