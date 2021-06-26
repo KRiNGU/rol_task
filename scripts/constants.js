@@ -4,7 +4,7 @@ export const cardList = document.querySelector(".cards");
 export const modalList = document.querySelectorAll('.modal');
 
 // card constants
-export const modalAddCard = document.querySelector(".modal_add-card");
+export const modalAddCard = document.querySelector(".modal__add-card");
 export const modalAddCardCloseButton = modalAddCard.querySelector('.modal__close-button');
 export const modalAddCardCreateButton = modalAddCard.querySelector('.modal__save-button');
 export const modalAddCardCreateForm = modalAddCard.querySelector('.modal__form');
@@ -18,7 +18,7 @@ export const userDescription = currentUser.querySelector('.user__description');
 export const userAvatarUrl = currentUser.querySelector('.user__foto');
 
 // edit user modal constants
-export const modalEditUser = document.querySelector('.modal_edit-user');
+export const modalEditUser = document.querySelector('.modal__edit-user');
 export const modalUserName = modalEditUser.querySelector('.modal__input-name');
 export const modalUserDescription = modalEditUser.querySelector('.modal__input-description');
 export const modalEditUserClosePopup = modalEditUser.querySelector('.modal__close-button');

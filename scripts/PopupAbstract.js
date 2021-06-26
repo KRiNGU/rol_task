@@ -1,7 +1,7 @@
 export default class PopupAbstract {
     keyPressFunction = (event)=>{
         if (event.key === "Escape") {
-           closePopup(document.querySelector('.modal_open'));
+           this.closePopup(this.document.querySelector('.modal_open'));
         }
      }
 
