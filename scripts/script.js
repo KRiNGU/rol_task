@@ -5,12 +5,12 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithEdit from './PopupWithEdit.js';
 
 // Global scope
-const editUser = function editUser({name, description}) {
+const editUser = ({name, description})=>{
    DOMconst.userName.textContent = name;
    DOMconst.userDescription.textContent = description;
 }
 
-const createCard = function createCard({name, link}) {
+const createCard = ({name, link})=>{
    const newCard = new Card(name, link, '.card-template', ()=>imagePopup.openImage(link, name)).getView();
    DOMconst.cardList.prepend(newCard);
 }

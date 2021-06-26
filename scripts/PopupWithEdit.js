@@ -7,11 +7,7 @@ export default class PopupWithEdit extends PopupAbstract {
     }
 
     _getInputs(){
-        let objectWithInpluts = {};
-        this.inputs.forEach(function(element){
-            objectWithInpluts[element.name] = element.value;
-        });
-        return(objectWithInpluts);
+        return [...this.inputs].reduce((result, input) => ({result, [input.name]: input.value}), {});
     }
 
     _setEventListeners() {
