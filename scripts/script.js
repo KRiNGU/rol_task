@@ -5,25 +5,25 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithEdit from './PopupWithEdit.js';
 
 // Global scope
-const editUser = function editUser({name, secondField}) {
+const editUser = function editUser({name, description}) {
    DOMconst.userName.textContent = name;
-   DOMconst.userDescription.textContent = secondField;
+   DOMconst.userDescription.textContent = description;
 }
 
-const createCard = function createCard({name, secondField}) {
-   const newCard = new Card(name, secondField, '.card-template', ()=>imagePopup.openImage(secondField, name)).getView();
+const createCard = function createCard({name, link}) {
+   const newCard = new Card(name, link, '.card-template', ()=>imagePopup.openImage(link, name)).getView();
    DOMconst.cardList.prepend(newCard);
 }
 
 // Initial constants
 const initialUser = { name: 'Alexander', 
-                     secondField: 'front-end junior'
+                     description: 'front-end junior'
                   };
 
 const initialCards = [
    {  
       name: 'asd',
-      secondField: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
+      link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
    }
 ];
 

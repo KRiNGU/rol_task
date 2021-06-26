@@ -6,12 +6,20 @@ export default class PopupWithEdit extends PopupAbstract {
         this.saveFunction = saveFunction;
     }
 
+    _getInputs(){
+        let objectWithInpluts = {};
+        this.inputs.forEach(function(element){
+            objectWithInpluts[element.name] = element.value;
+        });
+        return(objectWithInpluts);
+    }
+
     _setEventListeners() {
         this.closeButton.addEventListener('click', ()=>super.closePopup());
         this.popup.addEventListener('click', (event)=>super.overlayClick(event));
         this.form.addEventListener('submit', (event)=>{
             event.preventDefault();
-            this.saveFunction({name: this.inputs[0].value, secondField: this.inputs[1].value});
+            this.saveFunction(this._getInputs());
             super.closePopup();
         });
     }
