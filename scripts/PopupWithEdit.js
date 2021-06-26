@@ -8,7 +8,7 @@ export default class PopupWithEdit extends PopupAbstract {
 
     _setEventListeners() {
         this.closeButton.addEventListener('click', ()=>super.closePopup());
-        this.popup.addEventListener('click', ()=>super.overlayClick(event));
+        this.popup.addEventListener('click', (event)=>super.overlayClick(event));
         this.form.addEventListener('submit', (event)=>{
             event.preventDefault();
             this.saveFunction({name: this.inputs[0].value, secondField: this.inputs[1].value});
