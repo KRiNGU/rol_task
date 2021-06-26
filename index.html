@@ -26,7 +26,7 @@
       </div>
     </header>
       <ul class="cards"></ul>
-      <div class="modal modal_edit-user"> 
+      <div class="modal modal__edit-user"> 
         <div class="modal__box"> 
             <form novalidate class="modal__form modal__form_type_edit-user" name="edit-form"> 
                 <button 
@@ -42,16 +42,16 @@
                   placeholder="User name" 
                   required
                 /> 
-                <span class="modal__input-error_name"></span>
+                <span class="modal__input-error_name modal__input-error"></span>
                 <input 
                   class="modal__input modal__input-description" 
                   id="description"
                   type="text" 
-                  name="link" 
+                  name="description" 
                   placeholder="Description" 
                   required 
                 /> 
-                <span class="modal__input-error_description"></span>
+                <span class="modal__input-error_description modal__input-error"></span>
                 <button 
                   class="modal__save-button modal__save-button_type_user-info" 
                   id="add-modal-save-user-button" 
@@ -73,7 +73,7 @@
             </form> 
         </div> 
       </div> 
-      <div class="modal modal_add-card"> 
+      <div class="modal modal__add-card"> 
           <div class="modal__box"> 
               <form novalidate class="modal__form modal__form_type_new-place" name="edit-form"> 
                   <button 
@@ -89,7 +89,7 @@
                     placeholder="Title" 
                     required
                   /> 
-                  <span class="modal__input-error_title"></span>
+                  <span class="modal__input-error_title modal__input-error"></span>
                   <input 
                     class="modal__input modal__input-url" 
                     id="url"
@@ -98,7 +98,7 @@
                     placeholder="Image Link" 
                     required 
                   /> 
-                  <span class="modal__input-error_url"></span>
+                  <span class="modal__input-error_url modal__input-error"></span>
                   <button 
                     class="modal__save-button modal__save-button_type_new-card" 
                     id="add-modal-save-button" 
