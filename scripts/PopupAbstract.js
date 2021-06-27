@@ -1,13 +1,12 @@
 export default class PopupAbstract {
     keyPressFunction = (event)=>{
         if (event.key === "Escape") {
-           this.closePopup(this.document.querySelector('.modal_open'));
+           this.closePopup(document.querySelector('.modal_open'));
         }
      }
 
-    constructor(popupClass, document) {
+    constructor(popupClass) {
         this.popupClass = popupClass;
-        this.document = document;
     }
 
     getModal() {
@@ -21,16 +20,16 @@ export default class PopupAbstract {
     }
 
     openPopup() {
-        this.document.addEventListener('keydown', this.keyPressFunction);
+        document.addEventListener('keydown', this.keyPressFunction);
         this.popup.classList.add('modal_open');
     }
 
     closePopup() {
-        this.document.removeEventListener('keydown', this.keyPressFunction);
+        document.removeEventListener('keydown', this.keyPressFunction);
         this.popup.classList.remove('modal_open');
     }
 
     getPopup() {
-        this.popup = this.document.querySelector(this.popupClass);
+        this.popup = document.querySelector(this.popupClass);
     }
 }

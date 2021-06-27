@@ -1,13 +1,13 @@
 import PopupAbstract from './PopupAbstract.js';
 
 export default class PopupWithEdit extends PopupAbstract {
-    constructor(popupClass, document, saveFunction) {
-        super(popupClass, document);
+    constructor(popupClass, saveFunction) {
+        super(popupClass);
         this.saveFunction = saveFunction;
     }
 
     _getInputs(){
-        return [...this.inputs].reduce((result, input) => ({result, [input.name]: input.value}), {});
+        return [...this.inputs].reduce((result, input) => (result[input.name] = input.value, result), {});
     }
 
     _setEventListeners() {

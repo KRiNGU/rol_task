@@ -1,8 +1,8 @@
 import PopupAbstract from './PopupAbstract.js';
 
 export default class PopupWithImage extends PopupAbstract {
-    constructor(document) {
-        super('.modal__open-img', document);
+    constructor() {
+        super('.modal__open-img');
     }
 
     _setEventListeners() {
