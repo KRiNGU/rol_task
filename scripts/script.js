@@ -5,32 +5,32 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithEdit from './PopupWithEdit.js';
 
 // Global scope
-const editUser = ({name, description})=>{
-   DOMconst.userName.textContent = name;
+const editUser = ({nickname, description})=>{
+   DOMconst.userName.textContent = nickname;
    DOMconst.userDescription.textContent = description;
 }
 
-const createCard = ({name, link})=>{
-   const newCard = new Card(name, link, '.card-template', ()=>imagePopup.openImage(link, name)).getView();
+const createCard = ({title, link})=>{
+   const newCard = new Card(title, link, '.card-template', ()=>imagePopup.openImage(link, title)).getView();
    DOMconst.cardList.prepend(newCard);
 }
 
 // Initial constants
-const initialUser = { name: 'Alexander', 
+const initialUser = { nickname: 'Alexander', 
                      description: 'front-end junior'
-                  };
+                    };
 
 const initialCards = [
    {  
-      name: 'asd',
+      title: 'asd',
       link: 'https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg'
    }
 ];
 
 // Initiate page
-const editUserPopup = new PopupWithEdit('.modal__edit-user', document, editUser).getPopup();
-const createCardPopup = new PopupWithEdit('.modal__add-card', document, createCard).getPopup();
-const imagePopup = new PopupWithImage(document).getPopup();
+const editUserPopup = new PopupWithEdit('.modal__edit-user', editUser).getPopup();
+const createCardPopup = new PopupWithEdit('.modal__add-card', createCard).getPopup();
+const imagePopup = new PopupWithImage().getPopup();
 const addCardValidator = new FormValidator('.modal__input', editUserPopup.getModal());
 addCardValidator.enableValidation();
 const editUserValidator = new FormValidator('.modal__input', createCardPopup.getModal());
