@@ -15,7 +15,7 @@
       <hr>
       <div class="user__profile">
         <div class="user__info">
-          <img src="https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg" alt="user__foto" class="user__foto">
+          <img src="https://kubnews.ru/upload/iblock/aed/aede721d1ff8a00da41315253fc7aec7.jpg" alt="user__foto" class="user__link">
           <div class="user__text">
             <div class="user__name"></div>
             <div class="user__description"></div>
@@ -52,6 +52,15 @@
                   required 
                 /> 
                 <span class="modal__input-error_description modal__input-error"></span>
+                <input 
+                    class="modal__input modal__input-avatar-url" 
+                    id="avatar-url"
+                    type="url" 
+                    name="link" 
+                    placeholder="Image Link" 
+                    required 
+                  /> 
+                  <span class="modal__input-error_avatar-url modal__input-error"></span>
                 <button 
                   class="modal__save-button modal__save-button_type_user-info" 
                   id="add-modal-save-user-button" 
